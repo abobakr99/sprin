@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: AddressBookTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.559 s <<< FAILURE! - in AddressBookTest
+performJP(AddressBookTest)  Time elapsed: 0.483 s  <<< ERROR!
+javax.persistence.PersistenceException: No Persistence provider for EntityManager named jpa-test
+	at AddressBookTest.performJP(AddressBookTest.java:41)
+

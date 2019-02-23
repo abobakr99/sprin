@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th= "https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> AddressBook </title>
+</head>
+<body>
+
+<h1>Buddy Info Form </h1>
+<form  action="#" th:action="@{/bodyInfo}" th:object="${bodyInfo}" method="post">
+
+        <label for="name"> Name </label>
+        <input type="text" id="name" name="name" autofocus="autofocus"/>
+
+        <label for="phone"> Phone # </label>
+        <input type="text" id="phone" name="phone" autofocus="autofocus"/>
+        <br/>
+        <input type="submit" value="Add Buddy">
+
+</form>
+</body>
+</html>
