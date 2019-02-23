@@ -15,6 +15,9 @@ public class AddressBookController  {
     @Autowired
     private  BodyInfoService bodyInfoService;
 
+    @RequestMapping(value ="/hello", method = RequestMethod.GET)
+    public String greet(){return bodyInfoService.greet();}
+
     @RequestMapping(value = "/bodyInfo", method = RequestMethod.GET)
     public String addressBookForm(){
         return  "AddressBookForm";
@@ -28,7 +31,7 @@ public class AddressBookController  {
         return  "AddressBookForm";
     }
 
-   @RequestMapping(value = "/bodyInfos", method = RequestMethod.GET)
+    @RequestMapping(value = "/bodyInfos", method = RequestMethod.GET)
     public List<BodyInfo> getContacts(){
         return bodyInfoService.getBodyInfos();
     }

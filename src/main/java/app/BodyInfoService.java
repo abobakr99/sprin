@@ -14,6 +14,7 @@ public class BodyInfoService {
 
     private List<BodyInfo> bodyInfos = new ArrayList<>();
 
+    public String greet(){return "Hi";}
     public List<BodyInfo> getBodyInfos(){
         List<BodyInfo> contacts =new ArrayList<>();
         bodyInfoRepository.findAll().forEach(contacts::add);
