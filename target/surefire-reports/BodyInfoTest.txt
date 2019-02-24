@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: BodyInfoTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in BodyInfoTest
+performJP(BodyInfoTest)  Time elapsed: 0 s  <<< ERROR!
+javax.persistence.PersistenceException: No Persistence provider for EntityManager named jpa-test
+	at BodyInfoTest.performJP(BodyInfoTest.java:34)
+
