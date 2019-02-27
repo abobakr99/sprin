@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th= "https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h3>List of buddies </h3>
+  <div th:action="@{/all}"  th:object="${buddies}">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone #</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="buddy: ${buddies}" >
+            <td th:text="${buddy.name}"></td>
+            <td th:text="${buddy.phoneNum}"></td>
+        </tr>
+        </tbody>
+        </thead>
+    </table>
+  </div>
+</body>
+</html>

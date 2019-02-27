@@ -5,10 +5,11 @@
     <title> Home </title>
 </head>
 <body>
-<h1>===================</h1>
-<h1> This is home page </h1>
-<h1>===================</h1>
-
+<h1>Welcome to AddressBook WebApp</h1>
+<p th:text="'Name: ' + ${bodyInfo.name}" />
+<p th:text="'Phone#: ' + ${bodyInfo.phoneNum}" />
+<a href="/bodyInfo">Add new buddy Info</a> <br>
+<a href="/all">Display all buddies </a>
 
 </body>
 </html>

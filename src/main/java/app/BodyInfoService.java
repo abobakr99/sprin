@@ -11,14 +11,15 @@ import java.util.List;
 public class BodyInfoService {
     @Autowired
     private  BodyInfoRepository bodyInfoRepository;
-
     private List<BodyInfo> bodyInfos = new ArrayList<>();
 
+    public void setBodyInfos(List<BodyInfo> bodyInfos) { this.bodyInfos = bodyInfos; }
+    public void addBody(BodyInfo bodyInfo) {bodyInfos.add(bodyInfo);}
+    public List<BodyInfo> returnBodyInfos(){return this.bodyInfos;}
     public String greet(){return "Hi";}
     public List<BodyInfo> getBodyInfos(){
         List<BodyInfo> contacts =new ArrayList<>();
         bodyInfoRepository.findAll().forEach(contacts::add);
-
         return contacts;
     }
 
@@ -31,30 +32,16 @@ public class BodyInfoService {
             }
         }
         return  bodyInfo;
-
     }
 
     public void addBodyInfo(BodyInfo bodyInfo) {
         bodyInfoRepository.save(bodyInfo);
     }
 
-    public void updateBodyInfo(String id, BodyInfo bodyInfo) {
-        bodyInfoRepository.save(bodyInfo);
-        /*
-        for (BodyInfo b : bodyInfos) {
-            if(b.getName().equals(id)){
-                b.setName(bodyInfo.getName());
-                b.setPhoneNum(bodyInfo.getPhoneNum());
-                bodyInfos.add(b);
-                return;
-            }
-        }
-        */
-    }
+    public void updateBodyInfo(String id, BodyInfo bodyInfo) { bodyInfoRepository.save(bodyInfo); }
 
     public void removeBodyInfo(String id){
          System.out.println(bodyInfoRepository.findByName(id).size());
          bodyInfoRepository.delete(bodyInfoRepository.findByName(id).get(0));
-         System.out.println("Size"+bodyInfos.size());
     }
 }

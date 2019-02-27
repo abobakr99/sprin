@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,19 +20,27 @@ public class AddressBookController  {
     public String greet(){return bodyInfoService.greet();}
 
     @RequestMapping(value = "/bodyInfo", method = RequestMethod.GET)
-    public String addressBookForm(){
+    public String addressBookForm(Model model){
+        BodyInfo buddy = new BodyInfo();
+        model.addAttribute("bodyInfo", buddy);
         return  "AddressBookForm";
     }
     @RequestMapping(value = "/bodyInfo", method = RequestMethod.POST)
-    public String addBodyInfo(@ModelAttribute(name= "bodyInfo" ) BodyInfo bodyInfo , Model model){
+    public String addBodyInfo(@ModelAttribute BodyInfo bodyInfo, Model model){
         String name = bodyInfo.getName();
-        String phoneNum = Integer.toString(bodyInfo.getPhoneNum());
-        if ("admin".equals(name) )
-            return "home";
-        return  "AddressBookForm";
+        System.out.println(name);
+        System.out.println(bodyInfo.getPhoneNum());
+        bodyInfoService.addBody(bodyInfo);
+        model.addAttribute("bodyInfo", bodyInfo);
+        return  "Home";
+    }
+    @GetMapping(value = "/all")
+    public String getAllBuddies(Model model){
+        model.addAttribute("buddies",bodyInfoService.returnBodyInfos());
+        return  "allBuddies";
     }
 
-    @RequestMapping(value = "/bodyInfos", method = RequestMethod.GET)
+   @RequestMapping(value = "/bodyInfos", method = RequestMethod.GET)
     public List<BodyInfo> getContacts(){
         return bodyInfoService.getBodyInfos();
     }

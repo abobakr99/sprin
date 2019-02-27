@@ -5,18 +5,21 @@
     <title> AddressBook </title>
 </head>
 <body>
-
-<h1>Buddy Info Form </h1>
 <form  action="#" th:action="@{/bodyInfo}" th:object="${bodyInfo}" method="post">
-
-        <label for="name"> Name </label>
-        <input type="text" id="name" name="name" autofocus="autofocus"/>
-
-        <label for="phone"> Phone # </label>
-        <input type="text" id="phone" name="phone" autofocus="autofocus"/>
-        <br/>
-        <input type="submit" value="Add Buddy">
-
+    <fieldset>
+        <legend>Create New Buddy</legend>
+        <p>
+            <label for="name">Name</label> <br>
+            <input type="text" id="name" th:field="*{name}"/>
+        </p>
+        <p>
+            <label for="pphone">Phone # </label> <br>
+            <input type="text" id="pphone" th:field="*{phoneNum}" />
+        </p>
+        <p>
+            <input type="submit" value="Add" /> <input type="reset" value="Reset" />
+        </p>
+    </fieldset>
 </form>
 </body>
 </html>
